@@ -114,7 +114,7 @@ console.log("1. I would like to go above.");
 // On Linux : Ctrl + Shift + I
 
 // Or check the keybindings link in the previous exercise to format only a
-// portion of the code.
+// portion of the code.‚
 
 let a = 1234;
 a++;

@@ -18,12 +18,11 @@
 
 // -  https://docs.ethers.org/v6/
 
-// There is also a crush course on JS fundamentals and asynchronous code 
+// There is also a crush course on JS fundamentals and asynchronous code
 // under the local folders:
 
 // - 1_JS_Basics
 // - 2_JS_Async
-
 
 // Exercise 0. Create a simple function.
 ////////////////////////////////////////
@@ -35,8 +34,8 @@
 // click on the "Play" button on the top right corner of the editor to execute
 // the code.
 
-// Unlike environments like Jupyter, the entire content of this file will 
-// be executed, until you tell the process to stop. 
+// Unlike environments like Jupyter, the entire content of this file will
+// be executed, until you tell the process to stop.
 
 // This line will tell the process to stop.
 // process.exit(0);
@@ -52,9 +51,9 @@
 let exercise = 0;
 
 function exit() {
-    console.log('Exercise ' + exercise + ' completed.');
-    process.exit(0);
-    console.log('I will not be printed to console :(');
+  console.log("Exercise " + exercise + " completed.");
+  process.exit(0);
+  console.log("I will not be printed to console :(");
 }
 
 // c. Bonus. Did you realize that JavaScript/Node.JS has three different ways
@@ -69,28 +68,27 @@ function exit() {
 // use of the semicolon.
 
 // Checkpoint. Under what conditions can you reuse the same name (i.e., `exit`)
-// for all three functions? 
+// for all three functions?
 
 // Function expression.
-const exit3 = function() {
-    console.log('Exercise ' + exercise + ' completed.');
-    process.exit(0);
-    console.log('I will not be printed to console :(');
+const exit3 = function () {
+  console.log("Exercise " + exercise + " completed.");
+  process.exit(0);
+  console.log("I will not be printed to console :(");
 };
 
 // Arrow-function equivalent.
 const exit2 = () => {
-    console.log('Exercise ' + exercise + ' completed.');
-    process.exit(0);
-    console.log('I will not be printed to console :(');
+  console.log("Exercise " + exercise + " completed.");
+  process.exit(0);
+  console.log("I will not be printed to console :(");
 };
-
 
 // Exercise 1. NPM Warm Up.
 ///////////////////////////
 exercise = 1;
 
-// Execute the code below with Code Runner without errors. What is this 
+// Execute the code below with Code Runner without errors. What is this
 // code for? More on the next exercise.
 
 // Hint: you might need to install the dotenv package with npm.
@@ -102,7 +100,7 @@ exercise = 1;
 
 // Hint3: don't forget to uncomment the call to `exit()`.
 
-require('dotenv').config();
+require("dotenv").config();
 
 // exit();
 
@@ -110,22 +108,22 @@ require('dotenv').config();
 ////////////////////////////////
 exercise = 2;
 
-// You should have created an account at Etherscan, Infura, and Alchemy. 
+// You should have created an account at Etherscan, Infura, and Alchemy.
 // You should also have already own an Ethereum address (e.g., on Metamask).
 
 // You now need a special place to store all these credentials safely.
 // This place is inside .env file. What is an .env file? It is a safe place
 // where to store your credentials, but also non-sensitive information that
-// need to be shared in different parts of your application. 
+// need to be shared in different parts of your application.
 
 // The dotenv package you required in the previous exercise will load
-// the content of .env and make it available at runtime under `process.env`. 
+// the content of .env and make it available at runtime under `process.env`.
 
 // Create a .env file with the necessary information.
 // Hint: you can copy .env_sample, modify its content and save it as .env.
- 
+
 // See if it worked.
-console.log(process.env);
+//console.log(process.env);
 
 // exit();
 
@@ -133,17 +131,17 @@ console.log(process.env);
 //////////////////////////////////////////////////
 
 // In JavaScript variables are loosely typed.
-exercise = '3a';
+exercise = "3a";
 
-// Let's learn a bit of JavaScript syntax. 
+// Let's learn a bit of JavaScript syntax.
 
-// a. Check that the variable METAMASK_ACCOUNT_1 is not empty. Write an 
+// a. Check that the variable METAMASK_ACCOUNT_1 is not empty. Write an
 // if statement that print a warning message if empty.
-console.log(process.env.METAMASK_ACCOUNT_1);
+console.log(process.env.METAMASK_1_ADDRESS);
 
-let privateKey = process.env.METAMASK_PRIVATE_KEY;
+let privateKey = process.env.METAMASK_1_PRIVATE_KEY;
 if (privateKey === "") {
-    console.log('Missing private key, fix your .env file');
+  console.log("Missing private key, fix your .env file");
 }
 
 // exit();
@@ -151,17 +149,23 @@ if (privateKey === "") {
 // b. Create an array with all the names of the variables written in the .env
 // file. Then print the lenght of the array.
 
-exercise = '3b';
+exercise = "3b";
 
 let variablesToCheck = [
-    "INFURA_KEY", "INFURA_GOERLI", "INFURA_MAINNET",
-    "ALCHEMY_KEY", "ALCHEMY_GOERLI", "ALCHEMY_MAINNET",
-    "METAMASK_1_ADDRESS", "METAMASK_1_PRIVATE_KEY",
-    "METAMASK_2_ADDRESS", "METAMASK_2_PRIVATE_KEY",
-    "ETHERSCAN_KEY"
+  "INFURA_KEY",
+  "INFURA_GOERLI_API_URL",
+  "INFURA_MAINNET_API_URL",
+  "ALCHEMY_KEY",
+  "ALCHEMY_GOERLI_API_URL",
+  "ALCHEMY_MAINNET_API_URL",
+  "METAMASK_1_ADDRESS",
+  "METAMASK_1_PRIVATE_KEY",
+  "METAMASK_2_ADDRESS",
+  "METAMASK_2_PRIVATE_KEY",
+  "ETHERSCAN_KEY",
 ];
 
-console.log('Num of variables in .env to check: ', variablesToCheck.length);
+console.log("Num of variables in .env to check: ", variablesToCheck.length);
 
 // exit();
 
@@ -169,35 +173,33 @@ console.log('Num of variables in .env to check: ', variablesToCheck.length);
 // is set and non-empty under `process.env`.
 
 // Hint1: You can implement a for-loop or use the .forEach routine.
-// Hint2: `process.env` is an object, if you don't know how to access its 
+// Hint2: `process.env` is an object, if you don't know how to access its
 // field, read here: https://javascript.info/object
 
-
 // Solution 1. forEach.
-variablesToCheck.forEach(v => {
-    if (!process.env[v]) {
-        console.log(process.env[v])
-        console.log(`Missing ${v}, fix your .env file`);
-    }
+variablesToCheck.forEach((v) => {
+  if (!process.env[v]) {
+    console.log(process.env[v]);
+    console.log(`Missing ${v}, fix your .env file`);
+  }
 });
 
 // Solution 2. For-loop.
 for (let index = 0; index < variablesToCheck.length; index++) {
-    const v = variablesToCheck[index];
-    if (!process.env[v]) {
-        console.log(process.env[v])
-        console.log(`Missing ${v}, fix your .env file`);
-    }
+  const v = variablesToCheck[index];
+  if (!process.env[v]) {
+    console.log(process.env[v]);
+    console.log(`Missing ${v}, fix your .env file`);
+  }
 }
 
 // Checkpoint. Is !process.env[v] equivalent to process.env[v] === "" ?
 
 // exit();
 
-
 // Exercise 4. Create a Random Wallet.
 //////////////////////////////////////
-exercise = '4a';
+exercise = "4a";
 
 const ethers = require("ethers");
 
@@ -215,19 +217,18 @@ console.log();
 // exit();
 
 // b. Bonus. Print the derivation path of the wallet and check that it is
-// equal to `baseDevPath`. 
+// equal to `baseDevPath`.
 
-exercise = '4b';
+exercise = "4b";
 
 let baseDevPath = "m/44'/60'/0'/0/";
 
-// Wait is the derication path? 
+// Wait is the derication path?
 // Basically, the mnemonic alone isn't enough to determine an address
 // and you need this extra bit of information. You may learn more here:
 // https://www.youtube.com/watch?v=tPCN3nDVzZI
 // Also:
 // https://vault12.com/securemycrypto/crypto-security-basics/what-is-bip39/
-
 
 console.log("Derivation path:", wallet.path);
 
@@ -239,7 +240,7 @@ console.log();
 exercise = 5;
 
 // From the same wallet, you can derive a deterministic sequence of addresses.
-// First, pick a mnemonic, then create a hierarchical deterministic wallet, 
+// First, pick a mnemonic, then create a hierarchical deterministic wallet,
 // finally print the first 10 addresses and private keys generated.
 // Hint: You need to append an index to the derivation path.
 
