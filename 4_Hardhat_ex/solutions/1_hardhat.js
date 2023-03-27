@@ -26,8 +26,7 @@ const hardhatProvider = new ethers.JsonRpcProvider(hardhatUrl);
 // Exercise 2. Let's query the provider.
 ////////////////////////////////////////
 
-// Hardhat Blockchain is too long. Let's call it NUMA.
-// Print to console the network name, chain id, and block number of NUMA.
+// Print to console the network name, chain id, and block number of.
 
 const networkInfo = async () => {
   let net = await hardhatProvider.getNetwork();
