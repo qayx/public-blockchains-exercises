@@ -239,6 +239,7 @@ const rawTransactionStaticParams = async () => {
 
     // v5 function.
     let encodedParam = ethers.utils.hexZeroPad(1, 32);
+    console.log("dafnsdflnqerpfinds afcdqg asfö a");
     encodedParam = encodedParam.substring(2);
     console.log(encodedParam);
 
